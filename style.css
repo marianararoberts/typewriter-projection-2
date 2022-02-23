@@ -1,0 +1,19 @@
+body {
+    font-size: 36px;
+    font-family: monospace;
+    background-color: black;
+    color: white;
+    margin-left: 2%;
+}
+
+p {
+    color: limegreen;
+}
+span {
+    animation: blinker 1s linear infinite
+}
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
