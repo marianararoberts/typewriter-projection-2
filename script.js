@@ -1,30 +1,72 @@
-
-var messageArray = ["Lab Scene", "SUBJECTS: TRIPLETS WITH UNKNOWN BLUE SKIN PIGMENTATION", "AGE: 3 YEARS", "DISPLAY CONSTANT AND IDENTICAL HAPPINESS", "DAY ONE TEST ONE - SENSORY STIMULI", "SUBJECT ONE: REMAINS UNEFFECTED BY CONSTANT STIMULATION - EXHIBITS LAUGHTER", "SUBJECT TWO: REACTION IDENTICAL TO SUBJECT ONE", "SUBJECT THREE: IDENTICAL REACTION TO PREVIOUS TWO SUBJECTS", "IDENTICAL PLEASURE RESPONSES CORRESPONDING TO EQUAL OPTICAL STIMULATION", "ONE SUBJECT EXPERIENCING STIMULATION RESULTS IN ALL SUBJECTS RESPONDING IN AN IDENTICAL AND SIMULTANEOUS MANNER", "PHASE TWO - PRESENT SUBJECTS WITH DISCONCERTING IMAGERY", "ADRENALINE AND CORTISOL LEVELS REMAIN UNCHANGED - SUBJECTS APPEAR CALM", "PHASE TWO, TEST THREE - PRESENT SUBJECTS WITH GRAPHIC MATERIAL INVOLVING HOSTILE WARFARE AND BLOODSHED", "DISCOMFORT EXHIBITED BY SUBJECTS!!!", "SUBJECTS REMAIN UNPHASED :(", "HYPOTHESIS: PRIONS IN BLOOD MIGHT PRODUCE SUBJECTS' ADNORMAL SKIN PIGMENTATION AND BEHAVIOR???", "EXPERIMENT THREE - RESPONSE TO RAP MUSIC", "NO NEGATIVE RESPONSE ELICITED AS OF YET; NEW TRIAL USING JACQUI B'S RAP", "UNREST DISPLAYED IN THE SUBJECTS AS A RESULT OF MUSIC"];
+var messageArray = ["EXPERIMENT THREE - RESPONSE TO MUSICAL STIMULI", "PREVIOUS SAMPLES: CLASSICAL, LULLABY, R&B, POP, AND SHOWTUNES", "SUBJECTS REMAIN HAPPY", "TRIAL SEVENTEEN: SAMPLE OF CONTEMPORARY RAP BY JACQUI B", "WE ARE WORSHIPPING", "SOME FOOLS", "WHO CARE MORE ‘BOUT", "SOMEONE’S NUDES", "THAN THE SHOOTERS AT THE SCHOOLS", "GOTTA THROW THOSE ARMS AWAY",
+"BECAUSE ARMS WERE MEANT TO PRAY",
+"NOT TO FOCUS ON THE SHELLS",
+"THIS AINT TACO TUESDAY",
+"YALL’ DRAG WOMEN THROUGH THE MUD",
+"YEAH MY BARS ARE HERE TO BEAT IT",
+"YOU’RE OKAY WITH SPILLING BLOOD LONG AS",
+"A WOMAN DOESN’T BLEED IT",
+"AND SOME GIRLS",
+"YOU’RE NO DIFFERENT",
+"YOU LIKE BASIC MOVIE STARS WITH",
+"SEXY SCARS AND SPORTY CARS",
+"BUT",
+"WHAT ABOUT DEPRESSION SCARS",
+"WHAT ABOUT THOSE HIGH SCHOOL KIDS",
+"POPPING PILLS POPPIN LIDS",
+"GOOD WITH RAZORS, HANDS DON’T WOBBLE",
+"VERTICAL AND HORIZONTAL", "TRIPLETS ARE FIGHTING!!!", "SCIENTIST 318 SAMPLES MONOSYLLABIC 'LA'", "SUBJECTS BEGIN TO CALM"];
 let textPosition = 0;
 let i = 0;
 var speed = 85;
 var typedMessage = "";
-var prevMessage = "";
-var delayArr = [27000, 500, 1000, 10000, 29250, 25000, 250, 500, 3000, 20000, 25000, 6500, 22000, 17000, 10000, 3000, 10000, 2000]
+var typedMessage2 = "";
+var typedMessage3 = "";
+var delayArr = [2000, 2000, 2000, 500, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 200, 200, 200]
 typewriter = () => {
-  if (i == 14) {
-    typedMessage = prevMessage;
+  if (i < 4) {
+    var typingMessage = typedMessage + messageArray[i].substring(0, textPosition);
+    document.querySelector("#typing-text").innerHTML = typingMessage;
   }
-  var typingMessage = typedMessage + messageArray[i].substring(0, textPosition);
-  document.querySelector("#typing-text").innerHTML = typingMessage;
 
+  if (i >= 4 && i < 27) {
+    speed = 80;
+    var typingMessage = typedMessage2 + messageArray[i].substring(0, textPosition);
+    document.querySelector("#lyric").innerHTML = typingMessage;
+  }
+
+  if (i == 27) {
+    speed = 85;
+    var typingMessage = typedMessage3 + messageArray[i].substring(0, textPosition);
+    document.querySelector("#triplets").innerHTML = typingMessage;
+    setInterval(blinkIt, 500);
+  }
   if (textPosition++ != messageArray[i].length) {
     setTimeout(typewriter, speed);
   }
   if (textPosition > messageArray[i].length) {
-    if (i == 13) {
-      prevMessage = typedMessage;
+    if (i < 4) {
+      typedMessage += messageArray[i] + "<div>";
     }
-    typedMessage += messageArray[i] + "<div>";
+    if (i >= 4 && i < 28){
+      typedMessage2 += messageArray[i] + "<div>";
+    }
+    if (i == 29) {
+      typedMessage3 += messageArray[i] + "<div>";
+    }
     i++;
     textPosition = 0;
     setTimeout(typewriter, delayArr[i-1]);
   }
 
 }
+function blinkIt() {
+  var blinks = document.getElementById("triplets");
+  for(var i = 0, l = blinks.length; i < l; i++){
+    var blink = blinks[i];
+    var visiblity = blink.style.visibility;
+    blink.style.visibility = visiblity == 'visible' ? 'hidden' : 'visible';
+   }
+ }
+
 window.addEventListener("load", typewriter);

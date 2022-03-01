@@ -17,3 +17,12 @@ span {
         opacity: 0;
     }
 }
+
+#lyric {
+    color: antiquewhite;
+}
+
+#triplets {
+    color: red;
+    font-size: 72px;
+}
