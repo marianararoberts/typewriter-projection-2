@@ -20,9 +20,16 @@ span {
 
 #lyric {
     color: antiquewhite;
+    margin: 0;
 }
 
 #triplets {
     color: red;
     font-size: 72px;
+    margin: 30px;
+    margin-left: 0;
+}
+
+#typing-text2 {
+    margin: 0;
 }

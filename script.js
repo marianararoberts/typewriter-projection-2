@@ -15,14 +15,15 @@ var messageArray = ["EXPERIMENT THREE - RESPONSE TO MUSICAL STIMULI", "PREVIOUS 
 "WHAT ABOUT THOSE HIGH SCHOOL KIDS",
 "POPPING PILLS POPPIN LIDS",
 "GOOD WITH RAZORS, HANDS DON’T WOBBLE",
-"VERTICAL AND HORIZONTAL", "TRIPLETS ARE FIGHTING!!!", "SCIENTIST 318 SAMPLES MONOSYLLABIC 'LA'", "SUBJECTS BEGIN TO CALM"];
+"VERTICAL AND HORIZONTAL", "TRIPLETS ARE FIGHTING!!!", "SCIENTIST 318 SAMPLES MONOSYLLABIC 'LA'", "SUBJECTS BEGIN TO CALM", "."];
 let textPosition = 0;
 let i = 0;
 var speed = 85;
 var typedMessage = "";
 var typedMessage2 = "";
 var typedMessage3 = "";
-var delayArr = [2000, 2000, 2000, 500, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 200, 200, 200]
+var typedMessage4 = "";
+var delayArr = [2000, 2000, 2000, 500, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11000, 8000, 8000, 8000]
 typewriter = () => {
   if (i < 4) {
     var typingMessage = typedMessage + messageArray[i].substring(0, textPosition);
@@ -30,7 +31,7 @@ typewriter = () => {
   }
 
   if (i >= 4 && i < 27) {
-    speed = 80;
+    speed = 70;
     var typingMessage = typedMessage2 + messageArray[i].substring(0, textPosition);
     document.querySelector("#lyric").innerHTML = typingMessage;
   }
@@ -40,6 +41,10 @@ typewriter = () => {
     var typingMessage = typedMessage3 + messageArray[i].substring(0, textPosition);
     document.querySelector("#triplets").innerHTML = typingMessage;
     setInterval(blinkIt, 500);
+  }
+  if (i > 27) {
+    var typingMessage = typedMessage4 + messageArray[i].substring(0, textPosition);
+    document.querySelector("#typing-text2").innerHTML = typingMessage;
   }
   if (textPosition++ != messageArray[i].length) {
     setTimeout(typewriter, speed);
@@ -51,8 +56,8 @@ typewriter = () => {
     if (i >= 4 && i < 28){
       typedMessage2 += messageArray[i] + "<div>";
     }
-    if (i == 29) {
-      typedMessage3 += messageArray[i] + "<div>";
+    if (i > 27) {
+      typedMessage4 += messageArray[i] + "<div>";
     }
     i++;
     textPosition = 0;
