@@ -40,7 +40,7 @@ typewriter = () => {
     document.querySelector("#triplets").innerHTML = typingMessage;
   }
   if (i > 27) {
-    document.querySelector("#triplets").remove();
+    document.querySelector("#triplets").innerHTML = "";
     var typingMessage = typedMessage4 + messageArray[i].substring(0, textPosition);
     document.querySelector("#typing-text2").innerHTML = typingMessage;
   }
