@@ -41,9 +41,6 @@ typewriter = () => {
     setInterval(blinkIt, 500);
   }
   if (i > 27) {
-    if (i == 28) {
-      document.querySelector("#triplets").remove();
-    }
     var typingMessage = typedMessage4 + messageArray[i].substring(0, textPosition);
     document.querySelector("#typing-text2").innerHTML = typingMessage;
   }
@@ -59,6 +56,7 @@ typewriter = () => {
     }
     if (i > 27) {
       typedMessage4 += messageArray[i] + "<div>";
+      document.querySelector("#triplets").remove();
     }
     i++;
     textPosition = 0;
