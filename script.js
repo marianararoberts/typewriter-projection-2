@@ -46,9 +46,6 @@ typewriter = () => {
     var typingMessage = typedMessage4 + messageArray[i].substring(0, textPosition);
     document.querySelector("#typing-text2").innerHTML = typingMessage;
   }
-  if (i > 28) {
-    document.querySelector("#triplets").innerHTML = "";
-  }
   if (textPosition++ != messageArray[i].length) {
     setTimeout(typewriter, speed);
   }
@@ -66,5 +63,15 @@ typewriter = () => {
     textPosition = 0;
     setTimeout(typewriter, delayArr[i-1]);
   }
+
 }
+function blinkIt() {
+  var blinks = document.getElementById("triplets");
+  for(var i = 0, l = blinks.length; i < l; i++){
+    var blink = blinks[i];
+    var visiblity = blink.style.visibility;
+    blink.style.visibility = visiblity == 'visible' ? 'hidden' : 'visible';
+   }
+ }
+
 window.addEventListener("load", typewriter);
