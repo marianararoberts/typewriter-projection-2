@@ -46,6 +46,9 @@ typewriter = () => {
     var typingMessage = typedMessage4 + messageArray[i].substring(0, textPosition);
     document.querySelector("#typing-text2").innerHTML = typingMessage;
   }
+  if (i > 28) {
+    document.querySelector("#triplets").innerHTML = "";
+  }
   if (textPosition++ != messageArray[i].length) {
     setTimeout(typewriter, speed);
   }
@@ -57,7 +60,6 @@ typewriter = () => {
       typedMessage2 += messageArray[i] + "<div>";
     }
     if (i > 27) {
-      document.querySelector("#triplets").innerHTML = "";
       typedMessage4 += messageArray[i] + "<div>";
     }
     i++;
