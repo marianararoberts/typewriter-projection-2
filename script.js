@@ -25,9 +25,6 @@ var typedMessage3 = "";
 var typedMessage4 = "";
 var delayArr = [2000, 2000, 2000, 500, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11000, 17000]
 typewriter = () => {
-  if (i == 28) {
-    document.querySelector("#triplets").remove();
-  }
   if (i < 4) {
     var typingMessage = typedMessage + messageArray[i].substring(0, textPosition);
     document.querySelector("#typing-text").innerHTML = typingMessage;
@@ -44,6 +41,9 @@ typewriter = () => {
     setInterval(blinkIt, 500);
   }
   if (i > 27) {
+    if (i == 28) {
+      document.querySelector("#triplets").remove();
+    }
     var typingMessage = typedMessage4 + messageArray[i].substring(0, textPosition);
     document.querySelector("#typing-text2").innerHTML = typingMessage;
   }
