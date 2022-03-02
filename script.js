@@ -23,7 +23,7 @@ var typedMessage = "";
 var typedMessage2 = "";
 var typedMessage3 = "";
 var typedMessage4 = "";
-var delayArr = [2000, 2000, 2000, 500, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11000, 8000, 8000, 8000]
+var delayArr = [2000, 2000, 2000, 500, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11000, 17000, 15000]
 typewriter = () => {
   if (i < 4) {
     var typingMessage = typedMessage + messageArray[i].substring(0, textPosition);
@@ -31,7 +31,7 @@ typewriter = () => {
   }
 
   if (i >= 4 && i < 27) {
-    speed = 70;
+    speed = 65;
     var typingMessage = typedMessage2 + messageArray[i].substring(0, textPosition);
     document.querySelector("#lyric").innerHTML = typingMessage;
   }
@@ -57,21 +57,12 @@ typewriter = () => {
       typedMessage2 += messageArray[i] + "<div>";
     }
     if (i > 27) {
+      document.querySelector("#triplets").innerHTML = "";
       typedMessage4 += messageArray[i] + "<div>";
     }
     i++;
     textPosition = 0;
     setTimeout(typewriter, delayArr[i-1]);
   }
-
 }
-function blinkIt() {
-  var blinks = document.getElementById("triplets");
-  for(var i = 0, l = blinks.length; i < l; i++){
-    var blink = blinks[i];
-    var visiblity = blink.style.visibility;
-    blink.style.visibility = visiblity == 'visible' ? 'hidden' : 'visible';
-   }
- }
-
 window.addEventListener("load", typewriter);
