@@ -15,7 +15,7 @@ var messageArray = ["EXPERIMENT THREE - RESPONSE TO MUSICAL STIMULI", "PREVIOUS 
 "WHAT ABOUT THOSE HIGH SCHOOL KIDS",
 "POPPING PILLS POPPIN LIDS",
 "GOOD WITH RAZORS, HANDS DON’T WOBBLE",
-"VERTICAL AND HORIZONTAL", "TRIPLETS ARE FIGHTING!!!", "SCIENTIST 318 SAMPLES MONOSYLLABIC 'LA'", "SUBJECTS BEGIN TO CALM", "."];
+"VERTICAL AND HORIZONTAL", "TRIPLETS ARE FIGHTING!!!", "SCIENTIST 318 SAMPLES MONOSYLLABIC 'LA'", "SUBJECTS BEGIN TO CALM"];
 let textPosition = 0;
 let i = 0;
 var speed = 85;
@@ -23,7 +23,7 @@ var typedMessage = "";
 var typedMessage2 = "";
 var typedMessage3 = "";
 var typedMessage4 = "";
-var delayArr = [2000, 2000, 2000, 500, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11000, 17000, 15000]
+var delayArr = [2000, 2000, 2000, 500, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11000, 17000]
 typewriter = () => {
   if (i < 4) {
     var typingMessage = typedMessage + messageArray[i].substring(0, textPosition);
@@ -45,6 +45,9 @@ typewriter = () => {
   if (i > 27) {
     var typingMessage = typedMessage4 + messageArray[i].substring(0, textPosition);
     document.querySelector("#typing-text2").innerHTML = typingMessage;
+  }
+  if (i == 29) {
+    document.querySelector("#triplets").remove();
   }
   if (textPosition++ != messageArray[i].length) {
     setTimeout(typewriter, speed);
